@@ -19,7 +19,11 @@ console.log(numberCasual);
 //  2. Stampo i 5 numeri da ricordare
 document.getElementById("show-numbers").innerHTML = (numberCasual);
 
-
+//  3. Parte il timer di 30 sec.
+setTimeout(() => {
+    let element = document.getElementById("show-numbers");
+    element.classList.add("d-none");
+}, 3000);
 
 
 
