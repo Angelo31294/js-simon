@@ -1,11 +1,17 @@
 "use strict"
-
-// 1. Creo un array di 5 numeri non duplicati
-const cpuNumbers = [];
+/*----------------
+    FUNCTION
+----------------*/
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
-  }
+}
+
+/*----------------
+    MAIN
+----------------*/
+// 1. Creo un array di 5 numeri non duplicati
+const cpuNumbers = [];
 
   while ( cpuNumbers.length < 5 ) {
     const numberRandom = getRndInteger( 1, 100 );
@@ -27,18 +33,21 @@ setTimeout(() => {
 }, 3000);
 
 // 4. Chiedo all'utente di inserire i numeri memorizzati nel "prompt"
-let userNumberMemory = [];
+const userNumberMemory = [];
 
 setTimeout( function () {
     // 4a. Mi salvo i numeri inseriti dall'utente nell'array "userNumberMemory"
     for (let i = 0; i < cpuNumbers.length; i++) {
-        let userNumber = prompt("Inserisci i numeri che ricordi");
+        const userNumber = Number(prompt("Inserisci i numeri che ricordi"));
             userNumberMemory.push(userNumber);
     }
     console.log(userNumberMemory);
 }, 4000);
 
+// 5. Il software stampa i numeri indovinati
 
-
-// Dopo 30 secondi i numeri scompaiono e l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
-// Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
+setTimeout(() => {
+    if ( userNumberMemory.includes(cpuNumbers)){
+        alert("Bravo hai indovinato!");
+    } 
+}, 5000);
