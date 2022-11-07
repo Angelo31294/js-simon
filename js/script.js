@@ -33,21 +33,23 @@ setTimeout(() => {
 }, 3000);
 
 // 4. Chiedo all'utente di inserire i numeri memorizzati nel "prompt"
-const userNumberMemory = [];
 
 setTimeout( function () {
+    const userNumberMemory = [];
     // 4a. Mi salvo i numeri inseriti dall'utente nell'array "userNumberMemory"
     for (let i = 0; i < cpuNumbers.length; i++) {
         const userNumber = Number(prompt("Inserisci i numeri che ricordi"));
+        if(cpuNumbers.includes(userNumber) && !userNumberMemory.includes(userNumber) ) {
             userNumberMemory.push(userNumber);
+        };
     }
+    // 5. Il software stampa i numeri indovinati
+    if(userNumberMemory.length > 0) {
+        alert(`Hai indovitato ${userNumberMemory.length} numeri, i numeri indovinati sono ${userNumberMemory}`)
+    } else {
+        alert(`Peccato non hai indovinato nessun numero!`)
+    };
+
     console.log(userNumberMemory);
 }, 4000);
 
-// 5. Il software stampa i numeri indovinati
-
-setTimeout(() => {
-    if ( userNumberMemory.includes(cpuNumbers)){
-        alert("Bravo hai indovinato!");
-    } 
-}, 5000);
